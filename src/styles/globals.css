@@ -5,27 +5,36 @@
 :root {
   /* #region  /**=========== Primary Color =========== */
   /* !STARTERCONF Customize these variable, copy and paste from /styles/colors.css for list of colors */
-  --tw-color-primary-50: 240 249 255;
-  --tw-color-primary-100: 224 242 254;
-  --tw-color-primary-200: 186 230 253;
-  --tw-color-primary-300: 125 211 252;
-  --tw-color-primary-400: 56 189 248;
-  --tw-color-primary-500: 14 165 233;
-  --tw-color-primary-600: 2 132 199;
-  --tw-color-primary-700: 3 105 161;
-  --tw-color-primary-800: 7 89 133;
-  --tw-color-primary-900: 12 74 110;
-  --color-primary-50: rgb(var(--tw-color-primary-50)); /* #f0f9ff */
-  --color-primary-100: rgb(var(--tw-color-primary-100)); /* #e0f2fe */
-  --color-primary-200: rgb(var(--tw-color-primary-200)); /* #bae6fd */
-  --color-primary-300: rgb(var(--tw-color-primary-300)); /* #7dd3fc */
-  --color-primary-400: rgb(var(--tw-color-primary-400)); /* #38bdf8 */
-  --color-primary-500: rgb(var(--tw-color-primary-500)); /* #0ea5e9 */
-  --color-primary-600: rgb(var(--tw-color-primary-600)); /* #0284c7 */
-  --color-primary-700: rgb(var(--tw-color-primary-700)); /* #0369a1 */
-  --color-primary-800: rgb(var(--tw-color-primary-800)); /* #075985 */
-  --color-primary-900: rgb(var(--tw-color-primary-900)); /* #0c4a6e */
+  --tw-color-primary-50: 255 236 236;
+  --tw-color-primary-100: 254 202 202;
+  --tw-color-primary-200: 252 148 148;
+  --tw-color-primary-300: 250 93 93;
+  --tw-color-primary-400: 247 48 48;
+  --tw-color-primary-500: 235 28 28;
+  --tw-color-primary-600: 191 16 16;
+  --tw-color-primary-700: 152 10 10;
+  --tw-color-primary-800: 120 6 6;
+  --tw-color-primary-900: 94 3 3;
+  --color-primary-50: rgb(var(--tw-color-primary-50)); /* #ffeced */
+  --color-primary-100: rgb(var(--tw-color-primary-100)); /* #fecaca */
+  --color-primary-200: rgb(var(--tw-color-primary-200)); /* #fc9494 */
+  --color-primary-300: rgb(var(--tw-color-primary-300)); /* #fa5d5d */
+  --color-primary-400: rgb(var(--tw-color-primary-400)); /* #f73030 */
+  --color-primary-500: rgb(var(--tw-color-primary-500)); /* #eb1c1c */
+  --color-primary-600: rgb(var(--tw-color-primary-600)); /* #bf1010 */
+  --color-primary-700: rgb(var(--tw-color-primary-700)); /* #980a0a */
+  --color-primary-800: rgb(var(--tw-color-primary-800)); /* #780606 */
+  --color-primary-900: rgb(var(--tw-color-primary-900)); /* #5e0303 */
   /* #endregion  /**======== Primary Color =========== */
+
+  --step--2: clamp(0.78rem, calc(0.77rem + 0.03vw), 0.8rem);
+  --step--1: clamp(0.94rem, calc(0.92rem + 0.11vw), 1rem);
+  --step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+  --step-1: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
+  --step-2: clamp(1.62rem, calc(1.5rem + 0.58vw), 1.95rem);
+  --step-3: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
+  --step-4: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
+  --step-5: clamp(2.8rem, calc(2.45rem + 1.77vw), 3.82rem);
 }
 
 @layer base {
@@ -115,4 +124,9 @@
   .animated-underline:focus-visible {
     background-size: 0 2px, 100% 2px;
   }
+}
+
+.gradient-text {
+  background-image: linear-gradient(90deg, #007cf0, #00dfd8);
+  background-clip: text;
 }
