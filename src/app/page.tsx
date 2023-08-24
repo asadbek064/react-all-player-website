@@ -1,12 +1,17 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import * as React from 'react';
-import ReactAllPlayer from 'react-all-player';
 import { BsGithub } from 'react-icons/bs';
+// Dynamically import ReactAllPlayer to ensure it's only loaded on the client-side
+const ReactAllPlayer = dynamic(() => import('react-all-player'), {
+  ssr: false,
+});
 
 import ButtonLink from '@/components/links/ButtonLink';
 import UnderlineLink from '@/components/links/UnderlineLink';
+
 export default function HomePage() {
   return (
     <main>
@@ -42,16 +47,15 @@ export default function HomePage() {
 
           <div className='flex flex-col justify-center'>
             <ReactAllPlayer
+              autoPlay={false}
               className='max-h-full max-w-full items-center'
-              autoPlay={true}
-              thumbnail='https://cdn.plyr.io/static/demo/thumbs/100p-00001.jpg'
               sources={[
                 {
-                  file: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4',
+                  file: 'https://huggingface.co/datasets/light064/ReactAllPlayer/resolve/main/View_From_A_Blue_Moon_Trailer-1080p.mp4',
                   label: '1080p',
                 },
                 {
-                  file: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4',
+                  file: 'https://huggingface.co/datasets/light064/ReactAllPlayer/resolve/main/View_From_A_Blue_Moon_Trailer-720p.mp4',
                   label: '720p',
                 },
               ]}
@@ -80,14 +84,14 @@ export default function HomePage() {
             </small>
           </div>
         </div>
-      </div>
 
-      <footer className='absolute bottom-0 w-full bg-neutral-50 py-2 text-center text-gray-900'>
-        © {new Date().getFullYear()} By{' '}
-        <UnderlineLink href='https://asadbek.dev/'>
-          Asadbek Karimov
-        </UnderlineLink>
-      </footer>
+        <footer className='absolute bottom-0 w-full bg-neutral-50 py-2 text-center text-gray-900'>
+          © {new Date().getFullYear()} By{' '}
+          <UnderlineLink href='https://asadbek.dev/'>
+            Asadbek Karimov
+          </UnderlineLink>
+        </footer>
+      </div>
     </main>
   );
 }

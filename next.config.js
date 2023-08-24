@@ -9,7 +9,13 @@ const nextConfig = {
 
   // Uncoment to add domain whitelist
   images: {
-    domains: ['cdn.discordapp.com', 'discord.com'],
+    domains: [
+      'reactallplayer.asadbek.dev',
+      'asadbek.dev',
+      'cdn.discordapp.com',
+      'discord.com',
+      'huggingface.co',
+    ],
   },
 
   webpack(config) {
