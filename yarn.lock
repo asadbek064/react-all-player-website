@@ -5722,10 +5722,10 @@ quick-lru@^4.0.1:
   resolved "https://registry.npmjs.org/quick-lru/-/quick-lru-4.0.1.tgz"
   integrity sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==
 
-react-all-player@^2.0.6:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/react-all-player/-/react-all-player-2.0.6.tgz#309582ee2de33e8f8d835f59d253c0aa121d9e0d"
-  integrity sha512-y6Ga969qf1nE0X37EiNr0cjvdxeiVzg5VOf7DsLd0fqz6R8vklru56y0oWBdjNtfrNUyECCxpEuo5dZEvywTvQ==
+react-all-player@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/react-all-player/-/react-all-player-2.0.7.tgz#eae0a5150a15fcaad455a74a1af4f52b5d3a0e2e"
+  integrity sha512-B/HvYu+MdI8pdlYeab2fBQcJVDPMW4E9OvPQh0f+60rtcJJbWArJwizw5mWRuDeBZR1fXUyNPN0nU1eygdyeig==
   dependencies:
     "@plussub/srt-vtt-parser" "^1.1.0"
     load-script "^2.0.0"
