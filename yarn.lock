@@ -1830,7 +1830,7 @@
 
 "@plussub/srt-vtt-parser@^1.1.0":
   version "1.1.0"
-  resolved "https://registry.npmjs.org/@plussub/srt-vtt-parser/-/srt-vtt-parser-1.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/@plussub/srt-vtt-parser/-/srt-vtt-parser-1.1.0.tgz#5a5d2103c130177a3cde515cd4b75097737f1a21"
   integrity sha512-wDhuvXmTC6E9lxbwX/ashWpvFTH2v5MRT6LqTlGC6+fmragETMzcCubaEiVWWiNVT+HexKe2F6s421OFmfrjiw==
 
 "@rushstack/eslint-patch@^1.1.3":
@@ -4976,7 +4976,7 @@ listr2@^4.0.5:
 
 load-script@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.npmjs.org/load-script/-/load-script-2.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/load-script/-/load-script-2.0.0.tgz#40821aaa59e9bbe7be2e28b6ab053e6f44330fa1"
   integrity sha512-km6cyoPW4rM22JMGb+SHUKPMZVDpUaMpMAKrv8UHWllIxc/qjgMGHD91nY+5hM+/NFs310OZ2pqQeJKs7HqWPA==
 
 locate-path@^2.0.0:
@@ -5722,10 +5722,10 @@ quick-lru@^4.0.1:
   resolved "https://registry.npmjs.org/quick-lru/-/quick-lru-4.0.1.tgz"
   integrity sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==
 
-react-all-player@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/react-all-player/-/react-all-player-2.0.0.tgz"
-  integrity sha512-/523U+lk6T2ma7WerwMa+y43ZDff88XIvD5lax58zTGUKmMS3pIRPMTJvdK81zz6CSkrVv40iA/Mwo1zHUKvNg==
+react-all-player@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/react-all-player/-/react-all-player-2.0.6.tgz#309582ee2de33e8f8d835f59d253c0aa121d9e0d"
+  integrity sha512-y6Ga969qf1nE0X37EiNr0cjvdxeiVzg5VOf7DsLd0fqz6R8vklru56y0oWBdjNtfrNUyECCxpEuo5dZEvywTvQ==
   dependencies:
     "@plussub/srt-vtt-parser" "^1.1.0"
     load-script "^2.0.0"
@@ -6688,7 +6688,7 @@ uri-js@^4.2.2:
 
 url-toolkit@^2.2.5:
   version "2.2.5"
-  resolved "https://registry.npmjs.org/url-toolkit/-/url-toolkit-2.2.5.tgz"
+  resolved "https://registry.yarnpkg.com/url-toolkit/-/url-toolkit-2.2.5.tgz#58406b18e12c58803e14624df5e374f638b0f607"
   integrity sha512-mtN6xk+Nac+oyJ/PrI7tzfmomRVNFIWKUbG8jdYFt52hxbiReFAXIjYskvu64/dvuW71IcB7lV8l0HvZMac6Jg==
 
 util-deprecate@^1.0.1, util-deprecate@^1.0.2:

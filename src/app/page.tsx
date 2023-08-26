@@ -47,8 +47,9 @@ export default function HomePage() {
 
           <div className='flex flex-col justify-center'>
             <ReactAllPlayer
-              autoPlay={false}
-              className='max-h-full max-w-full items-center'
+              autoPlay={true}
+              muted={true}
+              className='min-h-full min-w-full items-center'
               sources={[
                 {
                   file: 'https://huggingface.co/datasets/light064/ReactAllPlayer/resolve/main/View_From_A_Blue_Moon_Trailer-1080p.mp4',
