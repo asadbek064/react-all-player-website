@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: 'Asadbek Karimov',
-      url: 'https://asadbek.dev',
+      url: 'https://asadk.dev',
     },
   ],
 };

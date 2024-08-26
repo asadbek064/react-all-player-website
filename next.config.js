@@ -15,6 +15,7 @@ const nextConfig = {
       'cdn.discordapp.com',
       'discord.com',
       'huggingface.co',
+      'ezy.ovh',
     ],
   },
 
