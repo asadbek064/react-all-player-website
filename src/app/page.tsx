@@ -16,16 +16,46 @@ import ButtonLink from '@/components/links/ButtonLink';
 import UnderlineLink from '@/components/links/UnderlineLink';
 
 export default function HomePage() {
-  const codeString = `import ReactAllPlayer from 'react-all-player'
+  const [sourceType, setSourceType] = React.useState('mp4');
+  const videoSources = {
+    mp4: [
+      {
+        file: 'https://ezy.ovh/sample-1080.mp4',
+        label: '1080p',
+      },
+      {
+        file: 'https://ezy.ovh/sample-720.mp4',
+        label: '720p',
+      },
+    ],
+    hls: [
+      {
+        file: 'https://ezy.ovh/mux-test-stream.m3u8',
+        label: 'HLS',
+        type: 'hls',
+      },
+    ],
+    dash: [
+      {
+        file: 'https://ezy.ovh/akamai-bbb_30fps.mpd',
+        label: 'DASH',
+        type: 'dash',
+      },
+    ]
+  };
+
+  const getCodeString = () => {
+    if (sourceType === 'mp4') {
+      return `import ReactAllPlayer from 'react-all-player'
   
 <ReactAllPlayer
   sources={[
     {
-      file: 'https://ezy.ovh/sample-video',
+      file: 'https://ezy.ovh/sample-1080.mp4',
       label: '1080p'
     },
     {
-      file: 'https://ezy.ovh/sample-video-720',
+      file: 'https://ezy.ovh/sample-720.mp4',
       label: '720p'
     }
   ]}
@@ -36,7 +66,36 @@ export default function HomePage() {
       file: 'https://ezy.ovh/english-vtt',
     }
   ]}
+    poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jp"
 />`;
+    } else if (sourceType === 'hls') {
+      return `import ReactAllPlayer from 'react-all-player'
+  
+<ReactAllPlayer
+  sources={[
+    {
+      file: 'https://ezy.ovh/mux-test-stream.m3u8',
+      label: 'HLS',
+      type: 'hls'
+    }
+  ]}
+/>`;
+    } else {
+      return `import ReactAllPlayer from 'react-all-player'
+  
+<ReactAllPlayer
+  sources={[
+    {
+      file: 'https://ezy.ovh/akamai-bbb_30fps.mpd',
+      label: 'DASH',
+      type: 'dash'
+    }
+  ]}
+/>`;
+    }
+  };
+
+  const codeString = getCodeString();
 
   // Function to handle copying text to clipboard
   const handleCopy = (text: string) => {
@@ -47,14 +106,28 @@ export default function HomePage() {
     <>
       <Head>
         <title>ReactAllPlayer</title>
-        <meta name="description" content="Simple React component that provides versatile and good looking UI video player." />
+        <meta name="description" content="A lightweight, customizable React player component that supports MP4, HLS, DASH streams and audio playback with a beautiful UI and accessibility features." />
+        <meta name="keywords" content="React player, video player, HLS player, DASH player, audio player, streaming, React component, responsive player, accessible video, open source" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://reactallplayer.asadk.dev" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="ReactAllPlayer - Versatile Video & Audio React Player" />
+        <meta property="og:description" content="A lightweight React player component with support for MP4, HLS, DASH streaming and audio playback." />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="ReactAllPlayer - Versatile Video & Audio React Player" />
+        <meta property="twitter:description" content="A lightweight React player component with support for MP4, HLS, DASH streaming and audio playback." />
+
       </Head>
 
       <header className="border-b border-gray-100 py-4">
         <div className="container mx-auto flex items-center justify-between px-4">
           <div className="flex items-center space-x-3">
-            <div className="h-8 w-8 rounded-md bg-red-600"></div>
-            <span className="text-xl font-bold">ReactAllPlayer</span>
+            <span className="text-2xl font-bold text-red-600">ReactAllPlayer</span>
           </div>
           <ButtonLink
             rightIcon={BsGithub}
@@ -73,44 +146,77 @@ export default function HomePage() {
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             {/* Player showcase */}
             <div className="order-2 md:order-1">
+
+              {/* Source type toggle */}
+              <div className="mb-4">
+                <div className="flex justify-center md:justify-start">
+                  <div className="inline-flex rounded-md shadow-sm" role="group">
+                    {['mp4', 'hls', 'dash'].map((type) => (
+                      <button
+                        key={type}
+                        type="button"
+                        onClick={() => setSourceType(type)}
+                        className={`px-4 py-2 text-sm font-medium ${sourceType === type
+                          ? 'bg-red-600 text-white'
+                          : 'bg-white text-gray-700 hover:bg-gray-50'
+                          } ${type === 'mp4'
+                            ? 'rounded-l-lg'
+                            : type === 'dash'
+                              ? 'rounded-r-lg'
+                              : ''
+                          } border border-gray-200`}
+                      >
+                        {type.toUpperCase()}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <p className="mt-2 text-center text-xs text-gray-500 md:text-left">
+                  Select a source type to see how the player handles different formats
+                </p>
+              </div>
+
+
               <div className="overflow-hidden rounded-lg shadow-md">
                 <ReactAllPlayer
                   autoPlay={true}
-                  muted={true}
+                  muted={false}
                   className="h-full w-full"
-                  sources={[
-                    {
-                      file: 'https://huggingface.co/datasets/light064/ReactAllPlayer/resolve/main/View_From_A_Blue_Moon_Trailer-1080p.mp4',
-                      label: '1080p',
-                    },
-                    {
-                      file: 'https://huggingface.co/datasets/light064/ReactAllPlayer/resolve/main/View_From_A_Blue_Moon_Trailer-720p.mp4',
-                      label: '720p',
-                    },
-                  ]}
-                  subtitles={[
-                    {
-                      lang: 'en',
-                      language: 'English',
-                      file: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt',
-                    },
-                    {
-                      lang: 'fr',
-                      language: 'French',
-                      file: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt',
-                    },
-                  ]}
+                  sources={videoSources[sourceType as keyof typeof videoSources]}
+                  subtitles={
+                    sourceType === 'mp4'
+                      ? [
+                        {
+                          lang: 'en',
+                          language: 'English',
+                          file: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt',
+                        },
+                        {
+                          lang: 'fr',
+                          language: 'French',
+                          file: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt',
+                        },
+                      ]
+                      : undefined
+                  }
+                  poster={sourceType === 'mp4' ? 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg' : undefined}
                 />
               </div>
               <small className="mt-1 block text-xs text-neutral-500">
-                <a
-                  href="https://itunes.apple.com/au/movie/view-from-a-blue-moon/id1041586323"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  View From A Blue Moon © Brainfarm
-                </a>
+                {sourceType === 'mp4' ? (
+                  <a
+                    href="https://itunes.apple.com/au/movie/view-from-a-blue-moon/id1041586323"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    View From A Blue Moon © Brainfarm
+                  </a>
+                ) : sourceType === 'hls' ? (
+                  <span>HLS sample stream from Mux</span>
+                ) : (
+                  <span>DASH sample stream from Akamai</span>
+                )}
               </small>
             </div>
 
@@ -122,11 +228,11 @@ export default function HomePage() {
                   Simple React component that provides versatile and good looking UI video player.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
-                    HLS Support
+                  <span className="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 cursor-pointer">
+                    <a href='https://ezy.ovh/hlsjs-repo-github'>HLS Support</a>
                   </span>
-                  <span className="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
-                    DASH Support
+                  <span className="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800 cursor-pointer">
+                    <a href='https://ezy.ovh/dashjs-repo-github'>DASH Support</a>
                   </span>
                   <span className="inline-flex items-center rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800">
                     Accessible
@@ -170,7 +276,7 @@ export default function HomePage() {
                       <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
                       <div className="h-3 w-3 rounded-full bg-green-500"></div>
                     </div>
-                    <div className="text-xs text-gray-400">example.tsx</div>
+                    <div className="text-xs text-gray-400">demo.tsx</div>
                   </div>
                   <div className="relative mt-1 overflow-hidden px-4">
                     <SyntaxHighlighter
@@ -207,6 +313,18 @@ export default function HomePage() {
                   </li>
                   <li>
                     🖥 <strong>Picture-in-Picture</strong> - supports PiP mode
+                  </li>
+                  <li>
+                    📖 <strong>Multiple captions</strong> - support for multiple caption tracks
+                  </li>
+                  <li>
+                    🔧 <strong>Customizable</strong> - make the player look how you want with the markup you want
+                  </li>
+                  <li>
+                    ⌨️ <strong>Shortcuts</strong> - supports keyboard shortcuts
+                  </li>
+                  <li>
+                    🖼️ <strong>Preview thumbnails</strong> - support for displaying preview thumbnails on hover
                   </li>
                 </ul>
               </div>
@@ -264,9 +382,9 @@ export default function HomePage() {
                   </tr>
                   <tr>
                     <td className="px-4 py-3 font-mono text-xs font-medium text-red-600">changeSourceUrl</td>
-                    <td className="px-4 py-3 font-mono text-xs">(currentSourceUrl: string, source: Source){` => string`}</td>
+                    <td className="px-4 py-3 font-mono text-xs text-gray-600">(currentSourceUrl: string, source: Source){` => string`}</td>
                     <td className="px-4 py-3 text-gray-600">A function that modify given source url (<code>hls</code> only)</td>
-                    <td className="px-4 py-3 font-mono text-xs">{`() => null`}</td>
+                    <td className="px-4 py-3 font-mono text-xs text-gray-600">{`() => null`}</td>
                     <td className="px-4 py-3 text-gray-600">false</td>
                   </tr>
                   <tr>
@@ -278,9 +396,9 @@ export default function HomePage() {
                   </tr>
                   <tr>
                     <td className="px-4 py-3 font-mono text-xs font-medium text-red-600">onDashInit</td>
-                    <td className="px-4 py-3 font-mono text-xs">(dash: DashJS.MediaPlayerClass){` => void`}</td>
+                    <td className="px-4 py-3 font-mono text-xs  text-gray-600">(dash: DashJS.MediaPlayerClass){` => void`}</td>
                     <td className="px-4 py-3 text-gray-600">A function that called after dashjs initialization</td>
-                    <td className="px-4 py-3 font-mono text-xs">{`() => null`}</td>
+                    <td className="px-4 py-3 font-mono text-xs text-gray-600">{`() => null`}</td>
                     <td className="px-4 py-3 text-gray-600">false</td>
                   </tr>
                   <tr>
