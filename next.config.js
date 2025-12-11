@@ -16,6 +16,8 @@ const nextConfig = {
       'discord.com',
       'huggingface.co',
       'ezy.ovh',
+      'youtube.com',
+      'https://vimeo.com/',
     ],
   },
 
