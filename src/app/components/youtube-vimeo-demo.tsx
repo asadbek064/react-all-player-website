@@ -15,8 +15,16 @@ export default function YouTubeVimeoDemo() {
   const [platform, setPlatform] = React.useState<Platform>('youtube');
 
   const players = {
-    youtube: { id: 'yt-1', file: 'bTqVqk7FSmY', type: 'youtube' as const },
-    vimeo: { id: 'vm-1', file: '76979871', type: 'vimeo' as const },
+    youtube: {
+      id: 'yt-1',
+      file: 'https://www.youtube.com/watch?v=bTqVqk7FSmY',
+      type: 'youtube' as const,
+    },
+    vimeo: {
+      id: 'vm-1',
+      file: 'https://vimeo.com/76979871',
+      type: 'vimeo' as const,
+    },
   };
 
   const codeSnippets = {
