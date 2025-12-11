@@ -102,6 +102,7 @@ import ReactAllPlayer from 'react-all-player'
                 key={platform}
                 className='h-full w-full'
                 id={players[platform].id}
+                autoPlay={false}
                 sources={[
                   {
                     file: players[platform].file,
