@@ -15,6 +15,9 @@ const ReactAllPlayer = dynamic(() => import('react-all-player'), {
 import ButtonLink from '@/components/links/ButtonLink';
 import UnderlineLink from '@/components/links/UnderlineLink';
 
+import { PropsTable } from '@/app/components/prop';
+import YouTubeVimeoDemo from '@/app/components/youtube-vimeo-demo';
+
 export default function HomePage() {
   const [sourceType, setSourceType] = React.useState('mp4');
   const videoSources = {
@@ -112,7 +115,7 @@ export default function HomePage() {
         />
         <meta
           name='keywords'
-          content='React player, video player, HLS player, DASH player, audio player, streaming, React component, responsive player, accessible video, open source'
+          content='React player, video player, HLS player, DASH player, audio player, streaming, React component, responsive player, accessible video, open source, YouTube, Vimeo'
         />
 
         {/* Canonical URL */}
@@ -202,7 +205,7 @@ export default function HomePage() {
 
               <div className='overflow-hidden rounded-lg shadow-md'>
                 <ReactAllPlayer
-                  autoPlay={true}
+                  autoPlay={false}
                   muted={false}
                   className='h-full w-full'
                   sources={
@@ -385,283 +388,9 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          {/* Props Documentation */}
-          <div className='mt-16'>
-            <h2 className='mb-6 text-2xl font-bold text-center text-gray-900'>
-              Available Props
-            </h2>
-            <div className='overflow-auto'>
-              <table className='min-w-full divide-y divide-gray-200 text-sm'>
-                <thead className='bg-gray-50'>
-                  <tr>
-                    <th
-                      scope='col'
-                      className='px-4 py-3 text-left font-medium text-gray-500 uppercase tracking-wider'
-                    >
-                      Prop
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-4 py-3 text-left font-medium text-gray-500 uppercase tracking-wider'
-                    >
-                      Type
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-4 py-3 text-left font-medium text-gray-500 uppercase tracking-wider'
-                    >
-                      Description
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-4 py-3 text-left font-medium text-gray-500 uppercase tracking-wider'
-                    >
-                      Default
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-4 py-3 text-left font-medium text-gray-500 uppercase tracking-wider'
-                    >
-                      Required
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className='bg-white divide-y divide-gray-200'>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      sources
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      Source[]
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>
-                      An array of sources contain <code>file</code>,{' '}
-                      <code>label</code> and <code>type</code>
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      null
-                    </td>
-                    <td className='px-4 py-3 text-green-600 font-medium'>
-                      true
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      subtitles
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      Subtitle[]
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>
-                      An array of subtitles contain <code>file</code>,{' '}
-                      <code>lang</code> and <code>language</code>
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      null
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>false</td>
-                  </tr>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      hlsRef
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      React.MutableRefObject&lt;Hls | null&gt;
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>
-                      <code>hls.js</code> instance ref
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      React.createRef()
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>false</td>
-                  </tr>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      dashRef
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      React.MutableRefObject&lt;DashJS.MediaPlayerClass |
-                      null&gt;
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>
-                      <code>dashjs</code> instance ref
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      React.createRef()
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>false</td>
-                  </tr>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      hlsConfig
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      Hls['config']
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>
-                      <code>hls.js</code> config
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      {}
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>false</td>
-                  </tr>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      changeSourceUrl
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      (currentSourceUrl: string, source: Source){` => string`}
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>
-                      A function that modify given source url (<code>hls</code>{' '}
-                      only)
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>{`() => null`}</td>
-                    <td className='px-4 py-3 text-gray-600'>false</td>
-                  </tr>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      onHlsInit
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      (hls: Hls){` => void`}
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>
-                      A function that called after hls.js initialization
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>{`() => null`}</td>
-                    <td className='px-4 py-3 text-gray-600'>false</td>
-                  </tr>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      onDashInit
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs  text-gray-600'>
-                      (dash: DashJS.MediaPlayerClass){` => void`}
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>
-                      A function that called after dashjs initialization
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>{`() => null`}</td>
-                    <td className='px-4 py-3 text-gray-600'>false</td>
-                  </tr>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      onInit
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      (videoEl: HTMLVideoElement){` => void`}
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>
-                      A function that called after video initialization
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>{`() => null`}</td>
-                    <td className='px-4 py-3 text-gray-600'>false</td>
-                  </tr>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      ref
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      React.MutableRefObject&lt;HTMLVideoElement | null&gt;
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>
-                      <code>video</code> element ref
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      null
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>false</td>
-                  </tr>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      i18n
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      I18n
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>Translations</td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      Default Translations
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>false</td>
-                  </tr>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      hotkeys
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      Hotkey[]
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>
-                      Hotkeys (shortcuts)
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      Default Hotkeys
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>false</td>
-                  </tr>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      components
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      Component[]
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>
-                      Customization components
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      Default components
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>false</td>
-                  </tr>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      thumbnail
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      string
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>
-                      Thumbnails on progress bar hover
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      null
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>false</td>
-                  </tr>
-                  <tr>
-                    <td className='px-4 py-3 font-mono text-xs font-medium text-red-600'>
-                      poster
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      string
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>
-                      Video poster image on load
-                    </td>
-                    <td className='px-4 py-3 font-mono text-xs text-gray-600'>
-                      null
-                    </td>
-                    <td className='px-4 py-3 text-gray-600'>false</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className='mt-4 text-center'>
-              <a
-                href='https://github.com/asadbek064/react-all-player/blob/main/README.md#props'
-                className='text-red-600 hover:text-red-700 text-sm font-medium hover:underline'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                View full documentation on GitHub →
-              </a>
-            </div>
-          </div>
+
+          <YouTubeVimeoDemo />
+          <PropsTable />
         </div>
       </main>
 
